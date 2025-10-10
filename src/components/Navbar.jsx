@@ -8,10 +8,10 @@ function Navbar() {
         <img src={logo} className='object-contain h-full w-full'/>
       </div>
       <ul className='text-xl text-shadow-neutral-50 font-bold flex gap-x-8 justify-center items-center pr-5'>
-        <li className='hover:text-amber-300'>CARS</li>
-        <li className='hover:text-amber-300'>LANDSCAPE</li>
-        <li className='hover:text-amber-300'><a target='_blank' href='https://www.instagram.com/golamsvision/'>IG</a></li>
-        <li className='hover:text-amber-300'><a target='_blank' href='https://www.tiktok.com/@golamsvision'>TIKTOK</a></li>
+        <li className='hover:text-yellow-500'>CARS</li>
+        <li className='hover:text-yellow-500'>LANDSCAPE</li>
+        <li className='hover:text-yellow-500'><a target='_blank' href='https://www.instagram.com/golamsvision/'>IG</a></li>
+        <li className='hover:text-yellow-500'><a target='_blank' href='https://www.tiktok.com/@golamsvision'>TIKTOK</a></li>
       </ul>
     </div>
   )
