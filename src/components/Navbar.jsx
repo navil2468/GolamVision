@@ -6,10 +6,10 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <div className='w-full border-b-1 border-b-neutral-700 bg-black'>
-      <div className='flex justify-between h-25 px-5'>
-        <div>
-          <Link to={'/'}><img src={logo} className='object-contain h-full w-full'/></Link>
+    <div className='w-full border-b border-b-neutral-700 bg-black'>
+      <div className='flex items-center justify-between h-20 px-5'>
+        <div className='flex items-center justify-start flex-shrink-0'>
+          <Link to={'/'}><img src={logo} alt='Logo' className='h-12 md:h-16 w-auto object-contain'/></Link>
         </div>
         <ul className='hidden md:flex text-xl text-white font-extrabold gap-x-8 items-center pr-5'>
           <Link to={'../Cars'}><li className='hover:text-yellow-500'>CARS</li></Link>
