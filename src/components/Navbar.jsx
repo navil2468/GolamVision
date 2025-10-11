@@ -9,7 +9,7 @@ function Navbar() {
       </div>
       <ul className='text-xl text-shadow-neutral-50 font-extrabold flex gap-x-8 justify-center items-center pr-5'>
         <li className='hover:text-yellow-500'>CARS</li>
-        <li className='hover:text-yellow-500'>LANDSCAPE</li>
+        <li className='hover:text-yellow-500'>LANDSCAPES</li>
         <li className='hover:text-yellow-500'><a target='_blank' href='https://www.instagram.com/golamsvision/'>IG</a></li>
         <li className='hover:text-yellow-500'><a target='_blank' href='https://www.tiktok.com/@golamsvision'>TIKTOK</a></li>
       </ul>
