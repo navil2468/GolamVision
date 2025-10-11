@@ -16,20 +16,23 @@ function Ending() {
             Interested?
           </h3>
           <p className='text-gray-300 leading-relaxed'>
-            Hit me up
+            Hit me up at
           </p>
+          <a target='_blank' href='mailto:Golamsvision@gmail.com'><p className='hover:text-yellow-500 text-gray-300 leading-relaxed'>
+            Golamsvision@gmail.com
+          </p></a>
           <div className='flex justify-center mt-5 space-x-6'>
             <a
               target='_blank'
               href='https://www.instagram.com/golamsvision/'
-              className='text-white hover:text-gray-400 transition-colors'
+              className='hover:text-yellow-500 text-white transition-colors'
             >
               <FaInstagram size={32} />
             </a>
             <a
               target='_blank'
               href='https://www.tiktok.com/@golamsvision'
-              className='text-white hover:text-gray-400 transition-colors'
+              className='hover:text-yellow-500 text-white transition-colors'
             >
               <FaTiktok size={32} />
             </a>
