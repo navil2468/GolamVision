@@ -1,4 +1,5 @@
 import React from 'react'
+import FadeInImage from './FadeInImage'
 
 import car1 from '../assets/Cars /DSC00110.jpg'
 import car2 from '../assets/Cars /DSC00101.jpg'
@@ -29,27 +30,27 @@ function RecentWork() {
 
           {/* Column 1 */}
           <div className='flex flex-col gap-10'>
-            <img
+            <FadeInImage
               src={pa1}
               alt="Portrait 1"
               className='w-full object-cover rounded-lg'
             />
-            <img
+            <FadeInImage
               src={car2}
               alt="Car 2"
               className='w-full rounded-lg'
             />
-            <img
+            <FadeInImage
               src={pa3}
               alt="Portrait 3"
               className='w-full rounded-lg'
             />
-            <img
+            <FadeInImage
               src={car4}
               alt="Car 4"
               className='w-full rounded-lg'
             />
-            <img
+            <FadeInImage
               src={pa6}
               alt="Portrait 6"
               className='w-full rounded-lg'
@@ -58,27 +59,27 @@ function RecentWork() {
 
           {/* Column 2 */}
           <div className='flex flex-col gap-10'>
-            <img
+            <FadeInImage
               src={car1}
               alt="Car 1"
               className='w-full rounded-lg'
             />
-            <img
+            <FadeInImage
               src={pa2}
               alt="Portrait 2"
               className='w-full rounded-lg'
             />
-            <img
+            <FadeInImage
               src={car3}
               alt="Car 3"
               className='w-full h-100 object-cover  rounded-lg'
             />
-            <img
+            <FadeInImage
               src={pa4}
               alt="Portrait 4"
               className='w-full rounded-lg'
             />
-            <img
+            <FadeInImage
               src={la2}
               alt="Landscape 2"
               className='w-full rounded-lg'
@@ -87,27 +88,27 @@ function RecentWork() {
 
           {/* Column 3 */}
           <div className='flex flex-col gap-10'>
-            <img
+            <FadeInImage
               src={la1}
               alt="Landscape 1"
               className='w-full rounded-lg'
             />
-            <img
+            <FadeInImage
               src={la3}
               alt="Landscape 3"
               className='w-full rounded-lg'
             />
-            <img
+            <FadeInImage
               src={car5}
               alt="Car 5"
               className='w-full h-64 object-cover rounded-lg'
             />
-            <img
+            <FadeInImage
               src={pa5}
               alt="Portrait 5"
               className='w-full rounded-lg'
             />
-            <img
+            <FadeInImage
               src={car6}
               alt="Car 6"
               className='w-full rounded-lg'

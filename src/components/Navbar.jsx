@@ -34,6 +34,7 @@ function Navbar() {
         <div className='md:hidden text-center bg-black border-t border-neutral-700'>
           <ul className='flex flex-col text-xl text-white font-extrabold py-4'>
             <Link to={'../Cars'} onClick={() => setIsOpen(false)}><li className='hover:text-yellow-500 px-5 py-3'>CARS</li></Link>
+            <Link to={'../Portraits'} onClick={() => setIsOpen(false)}><li className='hover:text-yellow-500 px-5 py-3'>PORTRAITS</li></Link>
             <Link to={'../Landscapes'} onClick={() => setIsOpen(false)}><li className='hover:text-yellow-500 px-5 py-3'>LANDSCAPES</li></Link>
             <li className='hover:text-yellow-500 px-5 py-3'><a target='_blank' href='https://www.instagram.com/golamsvision/' onClick={() => setIsOpen(false)}>IG</a></li>
             <li className='hover:text-yellow-500 px-5 py-3'><a target='_blank' href='https://www.tiktok.com/@golamsvision' onClick={() => setIsOpen(false)}>TIKTOK</a></li>

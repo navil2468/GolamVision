@@ -1,5 +1,6 @@
 import React from 'react'
 import Navbar from './components/Navbar'
+import FadeInImage from './components/FadeInImage'
 import pa1 from './assets/Portraits /DSC01076.jpg'
 import pa2 from './assets/Portraits /DSC00023-2.jpg'
 import pa3 from './assets/Portraits /DSC01077.jpg'
@@ -29,30 +30,30 @@ function Portraits() {
           <div className='grid grid-cols-1 md:grid-cols-3 gap-10'>
             {/* Column 1 */}
             <div className='flex flex-col gap-10'>
-              <img src={pa7} alt="Portrait 7" className='w-full rounded-lg' />
-              <img src={pa2} alt="Portrait 2" className='w-full rounded-lg' />
-              <img src={pa13} alt="Portrait 13" className='w-full rounded-lg' />
-              <img src={pa4} alt="Portrait 4" className='w-full rounded-lg' />
-              <img src={pa16} alt="Portrait 16" className='w-full rounded-lg' />
-              <img src={pa10} alt="Portrait 10" className='w-full rounded-lg' />
+              <FadeInImage src={pa7} alt="Portrait 7" className='w-full rounded-lg' />
+              <FadeInImage src={pa2} alt="Portrait 2" className='w-full rounded-lg' />
+              <FadeInImage src={pa13} alt="Portrait 13" className='w-full rounded-lg' />
+              <FadeInImage src={pa4} alt="Portrait 4" className='w-full rounded-lg' />
+              <FadeInImage src={pa16} alt="Portrait 16" className='w-full rounded-lg' />
+              <FadeInImage src={pa10} alt="Portrait 10" className='w-full rounded-lg' />
             </div>
             {/* Column 2 */}
             <div className='flex flex-col gap-10'>
-              <img src={pa1} alt="Portrait 1" className='w-full rounded-lg' />
-              <img src={pa17} alt="Portrait 17" className='w-full rounded-lg' />
-              <img src={pa8} alt="Portrait 8" className='w-full rounded-lg' />
-              <img src={pa14} alt="Portrait 14" className='w-full rounded-lg' />
-              <img src={pa11} alt="Portrait 11" className='w-full rounded-lg' />
-              <img src={pa5} alt="Portrait 5" className='w-full rounded-lg' />
+              <FadeInImage src={pa1} alt="Portrait 1" className='w-full rounded-lg' />
+              <FadeInImage src={pa17} alt="Portrait 17" className='w-full rounded-lg' />
+              <FadeInImage src={pa8} alt="Portrait 8" className='w-full rounded-lg' />
+              <FadeInImage src={pa14} alt="Portrait 14" className='w-full rounded-lg' />
+              <FadeInImage src={pa11} alt="Portrait 11" className='w-full rounded-lg' />
+              <FadeInImage src={pa5} alt="Portrait 5" className='w-full rounded-lg' />
             </div>
             {/* Column 3 */}
             <div className='flex flex-col gap-10'>
-              <img src={pa15} alt="Portrait 15" className='w-full rounded-lg' />
-              <img src={pa9} alt="Portrait 9" className='w-full rounded-lg' />
-              <img src={pa3} alt="Portrait 3" className='w-full rounded-lg' />
-              <img src={pa6} alt="Portrait 6" className='w-full rounded-lg' />
-              <img src={pa18} alt="Portrait 18" className='w-full rounded-lg' />
-              <img src={pa12} alt="Portrait 12" className='w-full rounded-lg' />
+              <FadeInImage src={pa15} alt="Portrait 15" className='w-full rounded-lg' />
+              <FadeInImage src={pa9} alt="Portrait 9" className='w-full rounded-lg' />
+              <FadeInImage src={pa3} alt="Portrait 3" className='w-full rounded-lg' />
+              <FadeInImage src={pa6} alt="Portrait 6" className='w-full rounded-lg' />
+              <FadeInImage src={pa18} alt="Portrait 18" className='w-full rounded-lg' />
+              <FadeInImage src={pa12} alt="Portrait 12" className='w-full rounded-lg' />
             </div>
           </div>
         </div>
