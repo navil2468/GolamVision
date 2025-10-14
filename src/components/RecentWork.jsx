@@ -3,14 +3,13 @@ import React from 'react'
 import car1 from '../assets/Cars /DSC00110.jpg'
 import car2 from '../assets/Cars /DSC00101.jpg'
 import car3 from '../assets/Cars /DSC00118.jpg'
+import car4 from '../assets/Cars /DSC08165.jpg'
+import car5 from '../assets/Cars /DSC09768.jpg'
+import car6 from '../assets/Cars /DSC08066.jpg'
 
 import la1 from '../assets/Landscapes /DSC02080.jpg'
 import la2 from '../assets/Landscapes /DSC08190.jpg'
 import la3 from '../assets/Landscapes /DSC09056.jpg'
-
-import car4 from '../assets/Cars /DSC08165.jpg'
-import car5 from '../assets/Cars /DSC09768.jpg'
-import car6 from '../assets/Cars /DSC08066.jpg'
 
 import pa1 from '../assets/Portraits /DSC01716.jpg'
 import pa2 from '../assets/Portraits /DSC00023-2.jpg'
