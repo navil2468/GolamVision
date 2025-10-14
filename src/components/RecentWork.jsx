@@ -12,6 +12,13 @@ import car4 from '../assets/Cars /DSC08165.jpg'
 import car5 from '../assets/Cars /DSC09768.jpg'
 import car6 from '../assets/Cars /DSC08066.jpg'
 
+import pa1 from '../assets/Portraits /DSC01716.jpg'
+import pa2 from '../assets/Portraits /DSC00023-2.jpg'
+import pa3 from '../assets/Portraits /DSC01394.jpg'
+import pa4 from '../assets/Portraits /DSC01078.jpg'
+import pa5 from '../assets/Portraits /DSC01376.jpg'
+import pa6 from '../assets/Portraits /DSC01444.jpg'
+
 
 function RecentWork() {
   return (
@@ -24,9 +31,9 @@ function RecentWork() {
           {/* Column 1 */}
           <div className='flex flex-col gap-10'>
             <img
-              src={la1}
-              alt="Landscape 1"
-              className='w-full h-160 object-cover rounded-lg'
+              src={pa1}
+              alt="Portrait 1"
+              className='w-full object-cover rounded-lg'
             />
             <img
               src={car2}
@@ -34,8 +41,18 @@ function RecentWork() {
               className='w-full rounded-lg'
             />
             <img
+              src={pa3}
+              alt="Portrait 3"
+              className='w-full rounded-lg'
+            />
+            <img
               src={car4}
               alt="Car 4"
+              className='w-full rounded-lg'
+            />
+            <img
+              src={pa6}
+              alt="Portrait 6"
               className='w-full rounded-lg'
             />
           </div>
@@ -48,9 +65,19 @@ function RecentWork() {
               className='w-full rounded-lg'
             />
             <img
+              src={pa2}
+              alt="Portrait 2"
+              className='w-full rounded-lg'
+            />
+            <img
               src={car3}
               alt="Car 3"
               className='w-full h-100 object-cover  rounded-lg'
+            />
+            <img
+              src={pa4}
+              alt="Portrait 4"
+              className='w-full rounded-lg'
             />
             <img
               src={la2}
@@ -62,6 +89,11 @@ function RecentWork() {
           {/* Column 3 */}
           <div className='flex flex-col gap-10'>
             <img
+              src={la1}
+              alt="Landscape 1"
+              className='w-full rounded-lg'
+            />
+            <img
               src={la3}
               alt="Landscape 3"
               className='w-full rounded-lg'
@@ -70,6 +102,11 @@ function RecentWork() {
               src={car5}
               alt="Car 5"
               className='w-full h-64 object-cover rounded-lg'
+            />
+            <img
+              src={pa5}
+              alt="Portrait 5"
+              className='w-full rounded-lg'
             />
             <img
               src={car6}

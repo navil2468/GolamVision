@@ -13,6 +13,7 @@ function Navbar() {
         </div>
         <ul className='hidden md:flex text-xl text-white font-extrabold gap-x-8 items-center pr-5'>
           <Link to={'../Cars'}><li className='hover:text-yellow-500'>CARS</li></Link>
+          <Link to={'../Portraits'}><li className='hover:text-yellow-500'>PORTRAITS</li></Link>
           <Link to={'../Landscapes'}><li className='hover:text-yellow-500'>LANDSCAPES</li></Link>
           <li className='hover:text-yellow-500'><a target='_blank' href='https://www.instagram.com/golamsvision/'>IG</a></li>
           <li className='hover:text-yellow-500'><a target='_blank' href='https://www.tiktok.com/@golamsvision'>TIKTOK</a></li>
