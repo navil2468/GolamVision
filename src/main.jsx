@@ -6,12 +6,14 @@ import {createBrowserRouter, RouterProvider} from 'react-router-dom';
 import Cars from './Cars.jsx';
 import Landscapes from './Landscapes.jsx';
 import Portraits from './Portraits.jsx';
+import Appointment from './Appointment.jsx';
 
 const router = createBrowserRouter([
   {path:'/', element: <App />},
   {path:'/Cars', element: <Cars />},
   {path:'/Landscapes', element: <Landscapes />},
-  {path: '/Portraits', element: <Portraits />}
+  {path: '/Portraits', element: <Portraits />},
+  {path: '/Appointment', element: <Appointment />}
 ]
 )
 
