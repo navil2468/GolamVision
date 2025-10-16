@@ -17,6 +17,9 @@ function Navbar() {
           <Link to={'../Landscapes'}><li className='hover:text-yellow-500'>LANDSCAPES</li></Link>
           <li className='hover:text-yellow-500'><a target='_blank' href='https://www.instagram.com/golamsvision/'>IG</a></li>
           <li className='hover:text-yellow-500'><a target='_blank' href='https://www.tiktok.com/@golamsvision'>TIKTOK</a></li>
+          <Link to={'../Appointment'}><button
+              className='bg-yellow-500 text-black font-bold text-xl p-3 rounded-lg hover:bg-yellow-50 transition-colors disabled:opacity-50 hover:cursor-pointer'
+          > Book Appointment</button></Link>
         </ul>
         <button className='md:hidden text-white' onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? (
@@ -38,6 +41,9 @@ function Navbar() {
             <Link to={'../Landscapes'} onClick={() => setIsOpen(false)}><li className='hover:text-yellow-500 px-5 py-3'>LANDSCAPES</li></Link>
             <li className='hover:text-yellow-500 px-5 py-3'><a target='_blank' href='https://www.instagram.com/golamsvision/' onClick={() => setIsOpen(false)}>IG</a></li>
             <li className='hover:text-yellow-500 px-5 py-3'><a target='_blank' href='https://www.tiktok.com/@golamsvision' onClick={() => setIsOpen(false)}>TIKTOK</a></li>
+            <Link to={'../Appointment'}><button
+              className='bg-yellow-500 text-black font-bold text-xl p-2 rounded-lg hover:bg-yellow-50 transition-colors disabled:opacity-50 hover:cursor-pointer'
+          > Book Appointment</button></Link>
           </ul>
         </div>
       )}
