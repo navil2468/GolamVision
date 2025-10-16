@@ -1,6 +1,8 @@
 import React from 'react'
 import { FaInstagram } from "react-icons/fa";
 import { FaTiktok } from "react-icons/fa";
+import { Link } from 'react-router-dom'
+
 
 function Ending() {
   return (
@@ -15,12 +17,9 @@ function Ending() {
           <h3 className='text-3xl font-bold mb-4'>
             Interested?
           </h3>
-          <p className='text-gray-300 leading-relaxed'>
-            Hit me up at
-          </p>
-          <a target='_blank' href='mailto:Golamsvision@gmail.com'><p className='hover:text-yellow-500 text-gray-300 leading-relaxed'>
-            Golamsvision@gmail.com
-          </p></a>
+          <Link to={'../Appointment'}><button
+              className='bg-yellow-500 text-black font-bold text-xl p-4 rounded-lg hover:bg-yellow-50 transition-colors disabled:opacity-50 hover:cursor-pointer'
+          > Book Appointment</button></Link>
           <div className='flex justify-center mt-5 space-x-6'>
             <a
               target='_blank'
