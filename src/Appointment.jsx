@@ -33,10 +33,10 @@ function Appointment() {
     }
 
     emailjs.send(
-      'YOUR_SERVICE_ID',
-      'YOUR_TEMPLATE_ID',
+      'service_75pgrk5',
+      'template_znteavv',
       templateParams,
-      'YOUR_PUBLIC_KEY'
+      '8EPJp1sFt2fTo6DRp'
     )
     .then((response) => {
       console.log('SUCCESS!', response.status, response.text)
@@ -107,6 +107,7 @@ function Appointment() {
                 <option value='Event Coverage'>Event Coverage</option>
                 <option value='Videography'>Videography</option>
                 <option value='Car Rollers'>Car Rollers</option>
+                <option value='Consultation'>Consultation</option>
               </select>
             </div>
 
@@ -138,7 +139,7 @@ function Appointment() {
             <button
               type='submit'
               disabled={isSubmitting}
-              className='w-full bg-yellow-500 text-black font-bold text-xl py-4 rounded-lg hover:bg-yellow-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed'
+              className='w-full bg-yellow-500 text-black font-bold text-xl py-4 rounded-lg hover:bg-yellow-50 transition-colors disabled:opacity-50 hover:cursor-pointer'
             >
               {isSubmitting ? 'Booking...' : 'Book Appointment'}
             </button>
