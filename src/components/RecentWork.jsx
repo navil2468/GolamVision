@@ -23,7 +23,7 @@ import pa6 from '../assets/Portraits /DSC01444.jpg'
 function RecentWork() {
   return (
     <div className='text-center py-12 px-4 bg-black'>
-      <h1 className='text-5xl font-bold mb-10 text-white' style={{ fontFamily: 'Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif' }}>RECENT WORK</h1>
+      <h1 className='text-4xl lg:text-5xl font-bold mb-10 text-white' style={{ fontFamily: 'Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif' }}>RECENT WORK</h1>
       
       <div className='max-w-6xl mx-auto'>
         <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-10'>

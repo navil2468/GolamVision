@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 function HeroSection() {
   return (
     <div className='text-center m-15 lg:m-35'>
-      <p className='md:text-6xl text-6xl lg:text-8xl' style={{ fontFamily: 'Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif' }}>
-        WELCOME! I'M GOLAM MORTUZA <span className='text-neutral-400 '>AND I TAKE PHOTOS AND VIDEOS TO BRING YOUR</span> <span className='text-yellow-500'>VISION</span> TO LIFE
+      <p className='md:text-6xl text-5xl lg:text-7xl' style={{ fontFamily: 'Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif' }}>
+        WELCOME TO <span className='text-yellow-500'>GOLAMSVISION</span> <span className='text-neutral-400 '> - CAPTURING THE MOMENTS AND IDEAS THAT</span> DEFINE YOU
       </p>
       <div className='flex flex-wrap justify-center gap-8 my-15'>
         <Link to={'/Cars'}>
