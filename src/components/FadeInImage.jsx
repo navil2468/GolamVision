@@ -1,57 +1,36 @@
 'use client'
 
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import Image from 'next/image'
 
-function FadeInImage( props ) {
-  const [isLoaded, setIsLoaded] = useState(false)
-  const [isVisible, setIsVisible] = useState(false)
+// Images already on screen at load show immediately; the rest fade in as they scroll into view.
+function FadeInImage({ alt, className = '', sizes = '(min-width: 768px) 33vw, 100vw', ...props }) {
   const imgRef = useRef(null)
 
   useEffect(() => {
     const img = imgRef.current
+    if (!img || !('IntersectionObserver' in window)) return
+    if (img.getBoundingClientRect().top < window.innerHeight) return
+
+    img.style.opacity = '0'
+    img.style.transition = 'opacity 1s ease'
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setIsVisible(true)
+            entry.target.style.opacity = '1'
+            observer.unobserve(entry.target)
           }
         })
       },
-      {
-        threshold: 0.6,
-      }
+      { threshold: 0.15 }
     )
+    observer.observe(img)
 
-    if (img) {
-      observer.observe(img)
-    }
-
-    return () => {
-      if (img) {
-        observer.unobserve(img)
-      }
-    }
+    return () => observer.disconnect()
   }, [])
 
-  // keep the intrinsic aspect ratio unless a fixed height class is passed in
-  const heightClass = /(^|\s)h-/.test(props.className) ? '' : 'h-auto'
-
-  return (
-    <Image
-      ref={imgRef}
-      src={props.src}
-      alt={props.alt}
-      sizes="(min-width: 768px) 33vw, 100vw"
-      className={`${props.className} ${heightClass} transition-opacity duration-1000 ${
-        isLoaded && isVisible ? 'opacity-100' : 'opacity-0'
-      }`}
-      onLoad={() => setIsLoaded(true)}
-    />
-  )
+  return <Image ref={imgRef} alt={alt} sizes={sizes} className={`block ${className}`} {...props} />
 }
 
 export default FadeInImage
-
-// Usage remains the same in your gallery pages:
-// <FadeInImage src={car1} alt="Car 1" className='w-full rounded-lg' />

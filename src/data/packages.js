@@ -289,3 +289,7 @@ export const packageOptions = (category) =>
       return `${prefix}${p.name} (${p.duration}) - $${p.price}`
     })
   )
+
+// cheapest package in a category, for the "From $X" labels on the home page
+export const minPrice = (category) =>
+  Math.min(...category.sections.flatMap((section) => section.packages.map((p) => p.price)))

@@ -1,70 +1,135 @@
 @import "tailwindcss";
 
-:root {
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+@theme {
+  --color-ink: #0A0908;        /* page background */
+  --color-ink-2: #0E0D0B;      /* CTA band / policy box background */
+  --color-surface: #13110F;    /* placeholder tile bg, <option> bg */
+  --color-line: #221F1B;       /* section dividers, header border */
+  --color-line-2: #2B2722;     /* card underlines, table/box borders */
+  --color-line-3: #3A342C;     /* form input underline */
+  --color-line-4: #4A443B;     /* secondary button border, dotted leader */
+  --color-row: #1C1A17;        /* list row divider */
+  --color-ivory: #EEE9E0;      /* primary text */
+  --color-ivory-2: #E2DDD3;    /* table cell text */
+  --color-ivory-3: #D8D2C7;    /* About paragraph */
+  --color-ivory-4: #CFC9BE;    /* category notes */
+  --color-muted: #A39C90;      /* secondary text */
+  --color-muted-2: #8C857A;    /* booking late-policy lines */
+  --color-muted-3: #7E776C;    /* table row labels */
+  --color-faint: #6A6155;      /* numerals, copyright */
+  --color-gold: #C9A45C;       /* primary accent */
+  --color-gold-light: #E4C987; /* hover / active */
+
+  /* header breakpoints: links collapse into the menu, then the book button moves into it */
+  --breakpoint-xs: 560px;
+  --breakpoint-nav: 1180px;
+}
+
+/* next/font exposes the families as variables on <html>, so these resolve at use time */
+@theme inline {
+  --font-display: var(--font-cormorant), "Cormorant Garamond", serif;
+  --font-sans: var(--font-jost), "Jost", sans-serif;
+}
+
+@layer base {
+  body {
+    background: var(--color-ink);
+    color: var(--color-ivory);
+    font-family: var(--font-sans);
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color-scheme: dark;
+  }
+  a { color: var(--color-gold); }
+  a:hover { color: var(--color-gold-light); }
+  ::selection { background: var(--color-gold); color: var(--color-ink); }
+  select option { background: var(--color-surface); color: var(--color-ivory); }
+  button { cursor: pointer; }
+}
+
+@utility container-gv {
+  max-width: 1360px;
+  margin-inline: auto;
+  padding-inline: clamp(20px, 4vw, 48px);
+}
+
+@utility eyebrow-label {
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.32em;
+  color: var(--color-gold);
+}
+
+@utility btn-primary {
+  display: inline-block;
+  background: var(--color-gold);
+  color: var(--color-ink);
+  border: 1px solid var(--color-gold);
+  padding: 16px 30px;
+  font-family: var(--font-sans);
+  font-size: 13px;
   font-weight: 500;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: black;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-/*
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-align: center;
+  white-space: nowrap;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  transition: background-color 0.2s, border-color 0.2s;
+  &:hover {
+    background: var(--color-gold-light);
+    border-color: var(--color-gold-light);
+    color: var(--color-ink);
+  }
+  &:disabled {
+    cursor: default;
+    opacity: 0.6;
+  }
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
+@utility btn-secondary {
+  display: inline-block;
+  background: transparent;
+  color: var(--color-ivory);
+  border: 1px solid var(--color-line-4);
+  padding: 16px 30px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+  &:hover {
+    border-color: var(--color-gold);
+    color: var(--color-gold-light);
   }
 }
- */
+
+@utility gold-foil {
+  background: linear-gradient(100deg, #9C7A3C 0%, #E9CF8E 45%, #B68C45 75%, #E4C987 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility form-field {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--color-line-3);
+  border-radius: 0;
+  padding: 10px 0;
+  color: var(--color-ivory);
+  font-family: var(--font-sans);
+  font-size: 17px;
+  font-weight: 300;
+  outline: none;
+  &:focus {
+    border-bottom-color: var(--color-gold);
+  }
+  &::placeholder {
+    color: var(--color-faint);
+  }
+}

@@ -1,17 +1,21 @@
 import React from 'react'
-import Navbar from '@/components/Navbar'
 import HeroSection from '@/components/HeroSection'
+import Sessions from '@/components/Sessions'
 import RecentWork from '@/components/RecentWork'
-import Ending from '@/components/Ending'
+import About from '@/components/About'
+import BookCTA from '@/components/BookCTA'
+import Policies from '@/components/Policies'
 
 function App() {
   return (
-    <div>
-      <Navbar />
+    <>
       <HeroSection />
+      <Sessions />
       <RecentWork />
-      <Ending />
-    </div>
+      <About />
+      <BookCTA />
+      <Policies />
+    </>
   )
 }
 

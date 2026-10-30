@@ -1,5 +1,6 @@
 import React from 'react'
 import Gallery from './Gallery'
+import Eyebrow from './Eyebrow'
 
 import lifestyle1 from '../assets/Lifestyle/lifestyle1.jpg'
 import lifestyle4 from '../assets/Lifestyle/lifestyle4.jpg'
@@ -26,10 +27,13 @@ const images = [
 
 function RecentWork() {
   return (
-    <div className='text-center py-12 px-4 bg-black'>
-      <h1 className='text-4xl lg:text-5xl font-bold mb-10 text-white' style={{ fontFamily: 'Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif' }}>RECENT WORK</h1>
+    <section className='pt-[clamp(48px,6vw,96px)] pb-[clamp(64px,8vw,120px)] border-t border-line'>
+      <div className='container-gv flex flex-col gap-[18px] mb-12'>
+        <Eyebrow>PORTFOLIO</Eyebrow>
+        <h2 className='font-display font-medium text-[clamp(40px,4.4vw,60px)] leading-none'>Recent work</h2>
+      </div>
       <Gallery images={images} alt='Recent work' />
-    </div>
+    </section>
   )
 }
 

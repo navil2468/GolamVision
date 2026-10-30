@@ -1,8 +1,9 @@
 import React from 'react'
-import Navbar from '@/components/Navbar'
-import Gallery from '@/components/Gallery'
+import CategoryHeader from '@/components/CategoryHeader'
+import PhotoStrip from '@/components/PhotoStrip'
 import Pricing from '@/components/Pricing'
-import Ending from '@/components/Ending'
+import BookCTA from '@/components/BookCTA'
+import Policies from '@/components/Policies'
 import { getCategory } from '@/data/packages'
 import lifestyle1 from '@/assets/Lifestyle/lifestyle1.jpg'
 import lifestyle2 from '@/assets/Lifestyle/lifestyle2.jpg'
@@ -24,16 +25,16 @@ export const metadata = { title: 'Lifestyle | GVisions' }
 
 const images = [lifestyle1, lifestyle2, lifestyle3, lifestyle4, lifestyle5, lifestyle6, lifestyle7, lifestyle8, lifestyle9, lifestyle10, lifestyle11, lifestyle12, lifestyle13, lifestyle14, lifestyle15]
 
+const category = getCategory('lifestyle')
+
 function Portraits() {
   return (
     <>
-      <Navbar />
-      <div className='bg-black py-12 px-4 space-y-16'>
-        <h1 className='text-center text-5xl font-bold text-white' style={{ fontFamily: 'Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif' }}>LIFESTYLE</h1>
-        <Gallery images={images} alt='Lifestyle' />
-        <Pricing category={getCategory('lifestyle')} />
-      </div>
-      <Ending />
+      <CategoryHeader title={category.title} intro='On-location portraits styled around you, from golden-hour streets to city lights after dark.' />
+      <PhotoStrip images={images} alt='Lifestyle' />
+      <Pricing category={category} />
+      <BookCTA />
+      <Policies />
     </>
   )
 }

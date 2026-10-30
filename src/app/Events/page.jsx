@@ -1,7 +1,9 @@
 import React from 'react'
-import Navbar from '@/components/Navbar'
+import CategoryHeader from '@/components/CategoryHeader'
+import PhotoStrip from '@/components/PhotoStrip'
 import Pricing from '@/components/Pricing'
-import Ending from '@/components/Ending'
+import BookCTA from '@/components/BookCTA'
+import Policies from '@/components/Policies'
 import { getCategory } from '@/data/packages'
 import sports1 from '@/assets/Sports/sports1.jpg'
 import sports2 from '@/assets/Sports/sports2.jpg'
@@ -22,31 +24,28 @@ export const metadata = { title: 'Events | GVisions' }
 
 const sports = [sports1, sports2, sports3, sports4, sports5, sports6, sports7, sports8, sports9, sports10, sports11, sports12, sports13, sports14]
 
-const events = getCategory('events')
+const category = getCategory('events')
 
 function Events() {
   return (
     <>
-      <Navbar />
-      <div className='bg-black py-12 px-4 space-y-16'>
-        <div className='text-center'>
-          <h1 className='text-5xl font-bold text-white mb-8' style={{ fontFamily: 'Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif' }}>EVENTS</h1>
-          {/* catalogue jump links */}
-          <div className='flex flex-wrap justify-center gap-4'>
-            {events.sections.map((section) => (
-              <a
-                key={section.id}
-                href={`#${section.id}`}
-                className='border-2 border-white px-6 py-2 text-lg font-bold hover:border-yellow-500 hover:text-yellow-500 transition-colors'
-              >
-                {section.title.toUpperCase()}
-              </a>
-            ))}
-          </div>
+      <CategoryHeader title={category.title} intro='Sports, weddings, engagements and birthday parties, covered from start to finish.'>
+        <div className='flex flex-wrap gap-7 mt-3'>
+          {category.sections.map((section) => (
+            <a
+              key={section.id}
+              href={`#${section.id}`}
+              className='text-[12px] tracking-[0.24em] text-ivory pb-[6px] border-b border-line-4 hover:text-gold-light hover:border-gold'
+            >
+              {section.title.toUpperCase()}
+            </a>
+          ))}
         </div>
-        <Pricing category={events} galleries={{ sports }} />
-      </div>
-      <Ending />
+      </CategoryHeader>
+      <PhotoStrip images={sports} alt='Events' />
+      <Pricing category={category} mergeAs='Event coverage' />
+      <BookCTA />
+      <Policies />
     </>
   )
 }
