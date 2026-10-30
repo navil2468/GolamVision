@@ -1,4 +1,7 @@
+'use client'
+
 import React, { useState, useEffect, useRef } from 'react'
+import Image from 'next/image'
 
 function FadeInImage( props ) {
   const [isLoaded, setIsLoaded] = useState(false)
@@ -6,6 +9,7 @@ function FadeInImage( props ) {
   const imgRef = useRef(null)
 
   useEffect(() => {
+    const img = imgRef.current
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -19,27 +23,30 @@ function FadeInImage( props ) {
       }
     )
 
-    if (imgRef.current) {
-      observer.observe(imgRef.current)
+    if (img) {
+      observer.observe(img)
     }
 
     return () => {
-      if (imgRef.current) {
-        observer.unobserve(imgRef.current)
+      if (img) {
+        observer.unobserve(img)
       }
     }
   }, [])
 
+  // keep the intrinsic aspect ratio unless a fixed height class is passed in
+  const heightClass = /(^|\s)h-/.test(props.className) ? '' : 'h-auto'
+
   return (
-    <img
+    <Image
       ref={imgRef}
       src={props.src}
       alt={props.alt}
-      className={`${props.className} transition-opacity duration-1000 ${
+      sizes="(min-width: 768px) 33vw, 100vw"
+      className={`${props.className} ${heightClass} transition-opacity duration-1000 ${
         isLoaded && isVisible ? 'opacity-100' : 'opacity-0'
       }`}
       onLoad={() => setIsLoaded(true)}
-      loading="lazy"
     />
   )
 }

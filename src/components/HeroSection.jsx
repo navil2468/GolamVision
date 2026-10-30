@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 
 function HeroSection() {
   return (
@@ -8,17 +8,17 @@ function HeroSection() {
         WELCOME TO <span className='text-yellow-500'>GOLAMSVISION</span> <span className='text-neutral-400 '> - CAPTURING THE MOMENTS AND IDEAS THAT</span> DEFINE YOU
       </p>
       <div className='flex flex-wrap justify-center gap-8 my-15'>
-        <Link to={'/Cars'}>
+        <Link href='/Cars'>
           <h1 className='border-2 border-white px-8 py-4 text-2xl font-bold hover:border-yellow-500 hover:text-yellow-500 transition-colors'>
             CARS
           </h1>
         </Link>
-        <Link to={'/Portraits'}>
+        <Link href='/Portraits'>
           <h1 className='border-2 border-white px-8 py-4 text-2xl font-bold hover:border-yellow-500 hover:text-yellow-500 transition-colors'>
             PORTRAITS
           </h1>
         </Link>
-        <Link to={'/Landscapes'}>
+        <Link href='/Landscapes'>
           <h1 className='border-2 border-white px-8 py-4 text-2xl font-bold hover:border-yellow-500 hover:text-yellow-500 transition-colors'>
             LANDSCAPES
           </h1>

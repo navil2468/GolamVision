@@ -1,12 +1,12 @@
 import React from 'react'
-import Navbar from './components/Navbar'
-import FadeInImage from './components/FadeInImage'
-import la1 from './assets/Landscapes /DSC00779.jpg'
-import la2 from './assets/Landscapes /DSC01636.jpg'
-import la3 from './assets/Landscapes /DSC02080.jpg'
-import la4 from './assets/Landscapes /DSC08190.jpg'
-import la5 from './assets/Landscapes /DSC08192.jpg'
-import la6 from './assets/Landscapes /DSC09056.jpg'
+import Navbar from '@/components/Navbar'
+import FadeInImage from '@/components/FadeInImage'
+import la1 from '@/assets/Landscapes /DSC00779.jpg'
+import la2 from '@/assets/Landscapes /DSC01636.jpg'
+import la3 from '@/assets/Landscapes /DSC02080.jpg'
+import la4 from '@/assets/Landscapes /DSC08190.jpg'
+import la5 from '@/assets/Landscapes /DSC08192.jpg'
+import la6 from '@/assets/Landscapes /DSC09056.jpg'
 
 function Landscapes() {
   return (
