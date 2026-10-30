@@ -3,23 +3,35 @@
 import React, { useState } from 'react'
 import Navbar from '@/components/Navbar'
 import emailjs from '@emailjs/browser'
+import { categories, packageOptions, DEPOSIT_NOTE, LATE_POLICY } from '@/data/packages'
+
+const OTHER = 'Other / Not sure yet'
+
+const emptyForm = {
+  name: '',
+  email: '',
+  service: '',
+  package: '',
+  message: '',
+  date: '',
+  agreed: false
+}
 
 function Appointment() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    service: '',
-    message: '',
-    date: ''
-  })
+  const [formData, setFormData] = useState(emptyForm)
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleChange = (e) => {
+    const { name, value, type, checked } = e.target
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [name]: type === 'checkbox' ? checked : value,
+      // a new category invalidates the previously picked package
+      ...(name === 'service' && { package: '' })
     })
   }
+
+  const selectedCategory = categories.find((c) => c.title === formData.service)
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -29,6 +41,7 @@ function Appointment() {
       name: formData.name,
       email: formData.email,
       Service: formData.service,
+      Package: formData.package || 'N/A',
       Message: formData.message,
       date: formData.date,
       from_email: formData.email
@@ -43,13 +56,7 @@ function Appointment() {
     .then((response) => {
       console.log('SUCCESS!', response.status, response.text)
       alert('Appointment booked, check your email inbox for a reply!')
-      setFormData({
-        name: '',
-        email: '',
-        service: '',
-        message: '',
-        date: ''
-      })
+      setFormData(emptyForm)
       setIsSubmitting(false)
     })
     .catch((error) => {
@@ -103,15 +110,30 @@ function Appointment() {
                 className='w-full px-4 py-3 rounded-lg bg-neutral-900 text-white border border-neutral-700 focus:border-yellow-500 focus:outline-none'
               >
                 <option value=''>Select a service</option>
-                <option value='Car Photography'>Car Photography</option>
-                <option value='Landscape Photography'>Landscape Photography</option>
-                <option value='Portrait Photography'>Portrait Photography</option>
-                <option value='Event Coverage'>Event Coverage</option>
-                <option value='Videography'>Videography</option>
-                <option value='Car Rollers'>Car Rollers</option>
-                <option value='Consultation'>Consultation</option>
+                {categories.map((c) => (
+                  <option key={c.slug} value={c.title}>{c.title}</option>
+                ))}
+                <option value={OTHER}>{OTHER}</option>
               </select>
             </div>
+
+            {selectedCategory && (
+              <div>
+                <label className='block text-white text-lg font-semibold mb-2'>Package</label>
+                <select
+                  name='package'
+                  value={formData.package}
+                  onChange={handleChange}
+                  required
+                  className='w-full px-4 py-3 rounded-lg bg-neutral-900 text-white border border-neutral-700 focus:border-yellow-500 focus:outline-none'
+                >
+                  <option value=''>Select a package</option>
+                  {packageOptions(selectedCategory).map((label) => (
+                    <option key={label} value={label}>{label}</option>
+                  ))}
+                </select>
+              </div>
+            )}
 
             <div>
               <label className='block text-white text-lg font-semibold mb-2'>Preferred Date</label>
@@ -136,6 +158,29 @@ function Appointment() {
                 className='w-full px-4 py-3 rounded-lg bg-neutral-900 text-white border border-neutral-700 focus:border-yellow-500 focus:outline-none resize-none'
                 placeholder='Tell me more about what you need'
               />
+            </div>
+
+            <div className='rounded-lg border border-neutral-700 bg-neutral-950 p-5 space-y-3 text-gray-300'>
+              <p><span className='font-bold text-yellow-500'>Deposit: </span>{DEPOSIT_NOTE}</p>
+              <div>
+                <p className='font-bold text-yellow-500'>Late Policy:</p>
+                <ul className='list-disc pl-5 text-sm text-gray-400 space-y-1'>
+                  {LATE_POLICY.map((line) => (
+                    <li key={line}>{line}</li>
+                  ))}
+                </ul>
+              </div>
+              <label className='flex items-start gap-3 text-white cursor-pointer'>
+                <input
+                  type='checkbox'
+                  name='agreed'
+                  checked={formData.agreed}
+                  onChange={handleChange}
+                  required
+                  className='mt-1 h-5 w-5 accent-yellow-500'
+                />
+                <span>I understand the 50% non-refundable deposit and the late policy.</span>
+              </label>
             </div>
 
             <button

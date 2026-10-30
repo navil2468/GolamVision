@@ -1,63 +1,39 @@
 import React from 'react'
 import Navbar from '@/components/Navbar'
-import FadeInImage from '@/components/FadeInImage'
-import pa1 from '@/assets/Portraits /DSC01076.jpg'
-import pa2 from '@/assets/Portraits /DSC00023-2.jpg'
-import pa3 from '@/assets/Portraits /DSC01077.jpg'
-import pa4 from '@/assets/Portraits /DSC01078.jpg'
-import pa5 from '@/assets/Portraits /DSC01079.jpg'
-import pa6 from '@/assets/Portraits /DSC01080.jpg'
-import pa7 from '@/assets/Portraits /DSC01374.jpg'
-import pa8 from '@/assets/Portraits /DSC01376.jpg'
-import pa9 from '@/assets/Portraits /DSC01382.jpg'
-import pa10 from '@/assets/Portraits /DSC01385.jpg'
-import pa11 from '@/assets/Portraits /DSC01387.jpg'
-import pa12 from '@/assets/Portraits /DSC01394.jpg'
-import pa13 from '@/assets/Portraits /DSC01436.jpg'
-import pa14 from '@/assets/Portraits /DSC01444.jpg'
-import pa15 from '@/assets/Portraits /DSC01712.jpg'
-import pa16 from '@/assets/Portraits /DSC01716.jpg'
-import pa17 from '@/assets/Portraits /DSC01717.jpg'
-import pa18 from '@/assets/Portraits /DSC01081.jpg'
+import Gallery from '@/components/Gallery'
+import Pricing from '@/components/Pricing'
+import Ending from '@/components/Ending'
+import { getCategory } from '@/data/packages'
+import lifestyle1 from '@/assets/Lifestyle/lifestyle1.jpg'
+import lifestyle2 from '@/assets/Lifestyle/lifestyle2.jpg'
+import lifestyle3 from '@/assets/Lifestyle/lifestyle3.jpg'
+import lifestyle4 from '@/assets/Lifestyle/lifestyle4.jpg'
+import lifestyle5 from '@/assets/Lifestyle/lifestyle5.jpg'
+import lifestyle6 from '@/assets/Lifestyle/lifestyle6.jpg'
+import lifestyle7 from '@/assets/Lifestyle/lifestyle7.jpg'
+import lifestyle8 from '@/assets/Lifestyle/lifestyle8.jpg'
+import lifestyle9 from '@/assets/Lifestyle/lifestyle9.jpg'
+import lifestyle10 from '@/assets/Lifestyle/lifestyle10.jpg'
+import lifestyle11 from '@/assets/Lifestyle/lifestyle11.jpg'
+import lifestyle12 from '@/assets/Lifestyle/lifestyle12.jpg'
+import lifestyle13 from '@/assets/Lifestyle/lifestyle13.jpg'
+import lifestyle14 from '@/assets/Lifestyle/lifestyle14.jpg'
+import lifestyle15 from '@/assets/Lifestyle/lifestyle15.jpg'
+
+export const metadata = { title: 'Lifestyle | GVisions' }
+
+const images = [lifestyle1, lifestyle2, lifestyle3, lifestyle4, lifestyle5, lifestyle6, lifestyle7, lifestyle8, lifestyle9, lifestyle10, lifestyle11, lifestyle12, lifestyle13, lifestyle14, lifestyle15]
 
 function Portraits() {
   return (
     <>
       <Navbar />
-      <div className='bg-black py-12 px-4'>
-        <h1 className='text-center text-5xl font-bold mb-10 text-white' style={{ fontFamily: 'Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif' }}>PORTRAITS</h1>
-        <div className='max-w-6xl mx-auto'>
-          <div className='grid grid-cols-1 md:grid-cols-3 gap-10'>
-            {/* Column 1 */}
-            <div className='flex flex-col gap-10'>
-              <FadeInImage src={pa7} alt="Portrait 7" className='w-full rounded-lg' />
-              <FadeInImage src={pa2} alt="Portrait 2" className='w-full rounded-lg' />
-              <FadeInImage src={pa13} alt="Portrait 13" className='w-full rounded-lg' />
-              <FadeInImage src={pa4} alt="Portrait 4" className='w-full rounded-lg' />
-              <FadeInImage src={pa16} alt="Portrait 16" className='w-full rounded-lg' />
-              <FadeInImage src={pa10} alt="Portrait 10" className='w-full rounded-lg' />
-            </div>
-            {/* Column 2 */}
-            <div className='flex flex-col gap-10'>
-              <FadeInImage src={pa1} alt="Portrait 1" className='w-full rounded-lg' />
-              <FadeInImage src={pa17} alt="Portrait 17" className='w-full rounded-lg' />
-              <FadeInImage src={pa8} alt="Portrait 8" className='w-full rounded-lg' />
-              <FadeInImage src={pa14} alt="Portrait 14" className='w-full rounded-lg' />
-              <FadeInImage src={pa11} alt="Portrait 11" className='w-full rounded-lg' />
-              <FadeInImage src={pa5} alt="Portrait 5" className='w-full rounded-lg' />
-            </div>
-            {/* Column 3 */}
-            <div className='flex flex-col gap-10'>
-              <FadeInImage src={pa15} alt="Portrait 15" className='w-full rounded-lg' />
-              <FadeInImage src={pa9} alt="Portrait 9" className='w-full rounded-lg' />
-              <FadeInImage src={pa3} alt="Portrait 3" className='w-full rounded-lg' />
-              <FadeInImage src={pa6} alt="Portrait 6" className='w-full rounded-lg' />
-              <FadeInImage src={pa18} alt="Portrait 18" className='w-full rounded-lg' />
-              <FadeInImage src={pa12} alt="Portrait 12" className='w-full rounded-lg' />
-            </div>
-          </div>
-        </div>
+      <div className='bg-black py-12 px-4 space-y-16'>
+        <h1 className='text-center text-5xl font-bold text-white' style={{ fontFamily: 'Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif' }}>LIFESTYLE</h1>
+        <Gallery images={images} alt='Lifestyle' />
+        <Pricing category={getCategory('lifestyle')} />
       </div>
+      <Ending />
     </>
   )
 }

@@ -1,4 +1,4 @@
-# GolamsVision
+# GVisions
 
 Photography portfolio site built with [Next.js](https://nextjs.org) (App Router) and Tailwind CSS.
 

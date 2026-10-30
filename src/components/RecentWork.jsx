@@ -1,121 +1,34 @@
 import React from 'react'
-import FadeInImage from './FadeInImage'
+import Gallery from './Gallery'
 
-import car1 from '../assets/Cars /DSC00110.jpg'
-import car2 from '../assets/Cars /DSC00101.jpg'
-import car3 from '../assets/Cars /DSC00118.jpg'
-import car4 from '../assets/Cars /DSC08165.jpg'
-import car5 from '../assets/Cars /DSC09768.jpg'
-import car6 from '../assets/Cars /DSC08066.jpg'
+import lifestyle1 from '../assets/Lifestyle/lifestyle1.jpg'
+import lifestyle4 from '../assets/Lifestyle/lifestyle4.jpg'
+import lifestyle7 from '../assets/Lifestyle/lifestyle7.jpg'
+import lifestyle11 from '../assets/Lifestyle/lifestyle11.jpg'
 
-import la1 from '../assets/Landscapes /DSC02080.jpg'
-import la2 from '../assets/Landscapes /DSC08190.jpg'
-import la3 from '../assets/Landscapes /DSC09056.jpg'
+import grad1 from '../assets/Grad/grad1.jpg'
+import grad5 from '../assets/Grad/grad5.jpg'
+import grad8 from '../assets/Grad/grad8.jpg'
 
-import pa1 from '../assets/Portraits /DSC01716.jpg'
-import pa2 from '../assets/Portraits /DSC00023-2.jpg'
-import pa3 from '../assets/Portraits /DSC01394.jpg'
-import pa4 from '../assets/Portraits /DSC01078.jpg'
-import pa5 from '../assets/Portraits /DSC01376.jpg'
-import pa6 from '../assets/Portraits /DSC01444.jpg'
+import sports2 from '../assets/Sports/sports2.jpg'
+import sports5 from '../assets/Sports/sports5.jpg'
+import sports9 from '../assets/Sports/sports9.jpg'
+import sports12 from '../assets/Sports/sports12.jpg'
+import sports4 from '../assets/Sports/sports4.jpg'
 
+// mixed so each column gets a blend of portrait and landscape shots
+const images = [
+  lifestyle1, sports2, grad1,
+  sports5, lifestyle4, sports9,
+  grad5, sports4, lifestyle7,
+  lifestyle11, grad8, sports12,
+]
 
 function RecentWork() {
   return (
     <div className='text-center py-12 px-4 bg-black'>
       <h1 className='text-4xl lg:text-5xl font-bold mb-10 text-white' style={{ fontFamily: 'Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif' }}>RECENT WORK</h1>
-      
-      <div className='max-w-6xl mx-auto'>
-        <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-10'>
-
-          {/* Column 1 */}
-          <div className='flex flex-col gap-10'>
-            <FadeInImage
-              src={pa1}
-              alt="Portrait 1"
-              className='w-full object-cover rounded-lg'
-            />
-            <FadeInImage
-              src={car2}
-              alt="Car 2"
-              className='w-full rounded-lg'
-            />
-            <FadeInImage
-              src={pa3}
-              alt="Portrait 3"
-              className='w-full rounded-lg'
-            />
-            <FadeInImage
-              src={car4}
-              alt="Car 4"
-              className='w-full rounded-lg'
-            />
-            <FadeInImage
-              src={pa6}
-              alt="Portrait 6"
-              className='w-full rounded-lg'
-            />
-          </div>
-
-          {/* Column 2 */}
-          <div className='flex flex-col gap-10'>
-            <FadeInImage
-              src={car1}
-              alt="Car 1"
-              className='w-full rounded-lg'
-            />
-            <FadeInImage
-              src={pa2}
-              alt="Portrait 2"
-              className='w-full rounded-lg'
-            />
-            <FadeInImage
-              src={car3}
-              alt="Car 3"
-              className='w-full h-100 object-cover  rounded-lg'
-            />
-            <FadeInImage
-              src={pa4}
-              alt="Portrait 4"
-              className='w-full rounded-lg'
-            />
-            <FadeInImage
-              src={la2}
-              alt="Landscape 2"
-              className='w-full rounded-lg'
-            />
-          </div>
-
-          {/* Column 3 */}
-          <div className='flex flex-col gap-10'>
-            <FadeInImage
-              src={la1}
-              alt="Landscape 1"
-              className='w-full rounded-lg'
-            />
-            <FadeInImage
-              src={la3}
-              alt="Landscape 3"
-              className='w-full rounded-lg'
-            />
-            <FadeInImage
-              src={car5}
-              alt="Car 5"
-              className='w-full h-64 object-cover rounded-lg'
-            />
-            <FadeInImage
-              src={pa5}
-              alt="Portrait 5"
-              className='w-full rounded-lg'
-            />
-            <FadeInImage
-              src={car6}
-              alt="Car 6"
-              className='w-full rounded-lg'
-            />
-          </div>
-        </div>
-      </div>
+      <Gallery images={images} alt='Recent work' />
     </div>
   )
 }

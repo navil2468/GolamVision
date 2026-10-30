@@ -27,3 +27,6 @@ dist-ssr
 /.next/
 /out/
 next-env.d.ts
+
+# raw photo originals (resized copies live in src/assets)
+/Portfolio/
