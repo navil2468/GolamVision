@@ -1,22 +1,42 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import monogram from '@/assets/monogram.png'
-import { navLinks, INSTAGRAM_URL } from '@/data/site'
+import { navLinks, contactMethods } from '@/data/site'
 
 function Navbar() {
   const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(false)
+  const [isContactOpen, setIsContactOpen] = useState(false)
   const [prevPath, setPrevPath] = useState(pathname)
+  const contactRef = useRef(null)
 
-  // close the mobile panel whenever the route changes
+  // close the mobile panel and contact dropdown whenever the route changes
   if (pathname !== prevPath) {
     setPrevPath(pathname)
     setIsOpen(false)
+    setIsContactOpen(false)
   }
+
+  // close the contact dropdown on outside click or Escape
+  useEffect(() => {
+    if (!isContactOpen) return
+    const onClick = (e) => {
+      if (!contactRef.current?.contains(e.target)) setIsContactOpen(false)
+    }
+    const onKey = (e) => {
+      if (e.key === 'Escape') setIsContactOpen(false)
+    }
+    document.addEventListener('mousedown', onClick)
+    document.addEventListener('keydown', onKey)
+    return () => {
+      document.removeEventListener('mousedown', onClick)
+      document.removeEventListener('keydown', onKey)
+    }
+  }, [isContactOpen])
 
   const linkColor = (href) =>
     pathname === href
@@ -43,14 +63,32 @@ function Navbar() {
         </nav>
 
         <div className='flex items-center gap-5'>
-          <a
-            target='_blank'
-            rel='noreferrer'
-            href={INSTAGRAM_URL}
-            className='hidden nav:inline text-[12px] tracking-[0.24em] text-muted hover:text-gold-light'
-          >
-            INSTAGRAM
-          </a>
+          <div ref={contactRef} className='relative hidden nav:block'>
+            <button
+              type='button'
+              onClick={() => setIsContactOpen(!isContactOpen)}
+              aria-expanded={isContactOpen}
+              className={`bg-transparent text-[12px] tracking-[0.24em] hover:text-gold-light ${isContactOpen ? 'text-gold-light' : 'text-muted'}`}
+            >
+              CONTACT
+            </button>
+            {isContactOpen && (
+              <div className='absolute right-0 top-full mt-5 min-w-[260px] bg-ink-2 border border-line p-6 flex flex-col gap-5'>
+                {contactMethods.map(({ label, value, href, external }) => (
+                  <div key={label} className='flex flex-col gap-[6px]'>
+                    <div className='eyebrow-label'>{label}</div>
+                    <a
+                      href={href}
+                      {...(external && { target: '_blank', rel: 'noreferrer' })}
+                      className='text-[15px] tracking-[0.04em] text-ivory hover:text-gold-light'
+                    >
+                      {value}
+                    </a>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
           <Link href='/Appointment' className='btn-primary hidden xs:inline-block text-[12px] px-[22px] py-3'>
             BOOK A SESSION
           </Link>
@@ -77,14 +115,20 @@ function Navbar() {
               {label}
             </Link>
           ))}
-          <a
-            target='_blank'
-            rel='noreferrer'
-            href={INSTAGRAM_URL}
-            className='text-[13px] tracking-[0.24em] text-muted py-4 hover:text-gold-light'
-          >
-            INSTAGRAM
-          </a>
+          <div className='flex flex-col gap-4 py-5'>
+            <div className='text-[13px] tracking-[0.24em] text-muted'>CONTACT</div>
+            {contactMethods.map(({ label, value, href, external }) => (
+              <a
+                key={label}
+                href={href}
+                {...(external && { target: '_blank', rel: 'noreferrer' })}
+                className='flex justify-between gap-4 text-[14px] tracking-[0.04em] text-ivory hover:text-gold-light'
+              >
+                <span className='text-[11px] tracking-[0.24em] text-faint'>{label}</span>
+                {value}
+              </a>
+            ))}
+          </div>
           <Link
             href='/Appointment'
             onClick={() => setIsOpen(false)}
